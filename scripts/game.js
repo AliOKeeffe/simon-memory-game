@@ -4,7 +4,7 @@ let game = {
     playerMoves: [],
     choices: ['button1', 'button2', 'button3', 'button4'],
     turnNumber: 0,
-    turnInProgess: false,
+    turnInProgress: false,
     lastButton: ""
 }
 
@@ -16,11 +16,11 @@ function newGame() {
     for (let circle of document.getElementsByClassName('circle')) {
         if(circle.getAttribute('data-listener') !== 'true') {
             circle.addEventListener('click', (e) => {
-                if(game.currentGame.length > 0 && !game.turnInProgess) {
+                if(game.currentGame.length > 0 && !game.turnInProgress) {
                     let move = e.target.getAttribute('id');
                     game.lastButton = move;
-                    lightsOn(move);
                     game.playerMoves.push(move);
+                    lightsOn(move);
                     playerTurn();
                 }
             });
